@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+    	<import resource="spring-hibernate.xml" />
+    	<import resource="sakai-hibernate.xml" />
+	<!--  SakaiProxy -->
+ 	<bean id="org.sakaiproject.trainingsupport.logic.SakaiProxy"
+    	class="org.sakaiproject.trainingsupport.logic.SakaiProxyImpl"
+        init-method="init">
+        <!-- API injection -->
+          <property name="securityService" ref="org.sakaiproject.authz.api.SecurityService" />
+          <property name="sessionManager" ref="org.sakaiproject.tool.api.SessionManager" />
+          <property name="toolManager" ref="org.sakaiproject.tool.api.ToolManager" />
+          <property name="userDirectoryService" ref="org.sakaiproject.user.api.UserDirectoryService" />
+	  <property name="eventTrackingService" ref="org.sakaiproject.event.api.EventTrackingService" />
+	  <property name="serverConfigurationService" ref="org.sakaiproject.component.api.ServerConfigurationService" />
+	  <property name="siteService" ref="org.sakaiproject.site.api.SiteService" />
+	  <property name="sectionManager" ref="org.sakaiproject.section.api.SectionManager" />
+	  <property name="gradebookService" ref="org.sakaiproject.service.gradebook.GradebookService" />
+	  <property name="courseManagementService" ref="org.sakaiproject.coursemanagement.api.CourseManagementService"/>
+	</bean>
+	
+	<!-- ProjectLogic -->
+	<bean id="org.sakaiproject.trainingsupport.logic.ProjectLogic"
+    	class="org.sakaiproject.trainingsupport.logic.ProjectLogicImpl"
+    	init-method="init" >
+		<property name="sakaiProxy" ref="org.sakaiproject.trainingsupport.logic.SakaiProxy" />
+        <property name="dao" ref="org.sakaiproject.trainingsupport.dao.TrainingDao" />
+        <property name="titlePattern">
+			<list>
+				<value>title</value>
+				<value>title1</value>
+				<value>title2</value>
+				<value>title3</value>
+			</list>
+		</property>
+	</bean>
+	
+	<!--  Traiing Status Update Job -->
+	<bean id="TrainingStatusUpdateJob"
+		class="org.sakaiproject.trainingsupport.job.TrainingStatusUpdateJob"
+		init-method="init" destroy-method="destroy">
+		<property name="projectLogic">
+			<ref bean="org.sakaiproject.trainingsupport.logic.ProjectLogic"/>
+		</property>
+	</bean>
+	<bean id="org.sakaiproject.api.app.scheduler.JobBeanWrapper.TrainingStatusUpdateJob"
+		class="org.sakaiproject.component.app.scheduler.jobs.SpringJobBeanWrapper"
+		singleton="true" init-method="init">
+		<property name="beanId">
+			<value>TrainingStatusUpdateJob</value>
+		</property>
+		<property name="jobName">
+			<value>Training Status Update Job</value>
+		</property>
+		<property name="schedulerManager">
+			<ref bean="org.sakaiproject.api.app.scheduler.SchedulerManager" />
+		</property>
+	</bean>
+	
+	<!--  Traiing Roster Update Job -->
+	<bean id="TrainingRosterUpdateJob"
+		class="org.sakaiproject.trainingsupport.job.TrainingRosterUpdateJob"
+		init-method="init" destroy-method="destroy">
+		<property name="projectLogic">
+			<ref bean="org.sakaiproject.trainingsupport.logic.ProjectLogic"/>
+		</property>
+	</bean>
+	<bean id="org.sakaiproject.api.app.scheduler.JobBeanWrapper.TrainingRosterUpdateJob"
+		class="org.sakaiproject.component.app.scheduler.jobs.SpringJobBeanWrapper"
+		singleton="true" init-method="init">
+		<property name="beanId">
+			<value>TrainingRosterUpdateJob</value>
+		</property>
+		<property name="jobName">
+			<value>Training Roster Update Job</value>
+		</property>
+		<property name="schedulerManager">
+			<ref bean="org.sakaiproject.api.app.scheduler.SchedulerManager" />
+		</property>
+	</bean>
+</beans>

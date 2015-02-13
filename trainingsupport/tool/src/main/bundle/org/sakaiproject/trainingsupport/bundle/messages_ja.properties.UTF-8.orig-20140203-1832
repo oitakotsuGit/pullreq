@@ -1,0 +1,157 @@
+project_title = トレーニングツール
+
+training_role_admin = システム管理者
+training_role_instructor = 研修実施担当者
+training_role_ta = 部局担当者
+training_role_student = 研修受講者
+
+menu_title_status = 受講状況確認
+menu_title_roster = 名簿
+menu_title_status_update = 受講状況更新
+menu_title_totalization = 部局集計
+menu_title_all_totalization = 全部局集計
+menu_title_jobtitle = 職名マスター
+
+training_done_status = 受講ステータス
+training_done_datetime = 受講日時
+training_site_title = トレーニング
+
+status_accept = 受講済
+status_reject = 未受講
+
+site_none = トレーニングサイトがありません
+
+list_title_section = 部局一覧
+section_name = 部局
+current_size = 現在の人数
+delete = 削除
+no_right_to_delete = 不可
+no_sections_available = このサイトには定義された部局がありません．
+
+label_section = 部局\:
+add = 登録
+section_name_required = 部局名を入力してください．
+section_add_failure_duplicate_title=同じ名前のセクションがすでにこのサイトに存在します．
+add_section_successful=部局が作成されました．
+add_section_error=部局の作成に失敗しました．
+edit= 編集
+edit_ta = 部局担当者を割当
+create_roster = 名簿を作成
+edit_roster = 名簿を編集
+sep_char=|
+edit_section_page_header = 部局を編集
+update_section_successful = 変更が保存されました．
+del_section_page_header = 部局を削除
+
+overview_delete_section_choose = 削除する部局を選択してください．
+overview_delete_section_confirmation_pre=次の部局を本当に削除しますか\:
+overview_delete_section_confirmation_post=これらの部局の研修受講者は「未割り当て」になります (このタイプのどの部局にも割り当てられません)．新しい部局に研修受講者を割り当てる場合は，「研修受講者を割当」リンクを使用してください．
+overview_delete_section_success = 部局が削除されました．
+
+cancel = キャンセル
+label_return = 戻る
+
+list_title_ta = 部局担当者一覧
+label_id = ID\:
+job_title = 職名
+personal_number = 職員番号
+user_name = 氏名
+no_tas_available = この部局には割当られた部局担当者はいません．
+id_required = IDを入力してください．
+add_failure_no_user = 有効なユーザではありません．
+ta_add_failure_already_ta = すでにこの部局の部局担当者です．
+add_failure_already_admin = すでにシステム管理者です．
+add_failure_already_instructor = すでに実施担当者です．
+add_failure_already_student = すでに受講者です．
+add_ta_successful=部局担当者が追加されました．
+ta_delete_ta_choose = 削除する部局担当者を選択してください．
+delete_ta_success = 部局担当者が削除されました．
+no_jobtitles = 登録されている職名はありません．
+invalid_jotitle = 職名に誤りがあります．登録できませんでした．
+success_add = 登録しました．
+delete_failure = 削除に失敗しました．
+delete_success = 削除しました．
+
+menu_title_go_menu = メニューへ
+title_create_target_roster_list = 受講対象者リスト作成
+explanation_update_roster = 画面一番下の「名簿を保存」ボタンがクリックされるまで名簿は更新されません．職名で受講要件を設定する場合は，必須または任意にしたい職名を選択し，「受講要件を必須にする」または「受講要件を任意にする」をクリックして下さい．職名での設定は，一覧の中での個別変更より優先します．
+label_job_title = 職名\:
+create_list = リスト作成
+title_roster_list = 受講対象者リスト
+update_roster = 名簿を保存
+no_target_roster_available = 条件に該当する対象者はいません．
+add_list = リストに追加
+target_roster_add_failure_already_another_roster = すでに他の部局の研修受講者です．
+target_roster_add_failure_already_target_roster = すでに受講対象者リストに存在します．
+add_failure_already_ta = 部局担当者です．
+add_target_roster_list_successful = リストに追加しました．
+update_roster_successful = 名簿が更新されました．
+unregistrable_roster = 名簿に登録できません．
+
+# statuslist
+title_status_list = 受講状況一覧
+label_submit_select = 選択
+msgs_no_user = 受講者がいません．
+msgs_roster_update_date = （名簿更新日時：{0}）
+
+# statusupdate
+msgs_statusupdate = 現在の総合評価を受講状況に反映します．
+msgs_do_statusupdate = 受講状況を更新
+msgs_statusupdate_update = 受講状況を更新しました．
+msgs_statusupdate_noupdate = 受講状況は更新されませんでした．
+msgs_statusupdate_last_update = （前回の更新日時：{0}）
+
+# totalization
+label_term = 期間：
+label_button_totalization = 集計
+msgs_term_result = {0} ~ {1} に受講済みになった人
+msgs_noterm_result = 全期間で受講済みになった人
+label_result = 集計結果
+label_button_csvoutput = CSV出力
+header_csv_1 = 部局名
+header_csv_2 = 職名
+header_csv_3 = 受講済み割合
+header_csv_4 = 受講済み人数
+header_csv_5 = 受講者人数
+label_total_all_section = 全部局
+
+# section
+section_unregistered_csv_download = 未登録部局一覧ダウンロード
+section_csv_download = 部局一覧ダウンロード
+section_csv_upload = 部局一覧アップロード
+section_header_1 = 部局名
+label_csv_upload_file = CSVファイル
+label_csv_upload_done = 登録
+msgs.reuslt.section.csv.upload = 登録結果：追加:{0}件、更新：{1}件、エラー：{2}件
+section_auto_registered = 部局自動登録
+msgs_section_download_1 = 未登録部局一覧ダウンロードは、LDAPユーザを検索して出力するため時間がかかる場合があります．
+
+# jobtitle
+label_jobtitle_pattern = 職名パタン:
+jobtitle_unregistered_csv_download = 未登録職名一覧ダウンロード
+jobtitle_csv_download = 職名一覧ダウンロード
+jobtitle_csv_upload = 職名一覧アップロード
+jobtitle_no_pattern = 職名パタンがありません
+jobtitle_all = すべて
+jobtitle_header_csv_1 = 職名パタン
+jobtitle_header_csv_2 = 職名
+msgs_jobtitle_download_1 = 未登録職名一覧ダウンロードは、LDAPユーザを検索して出力するため時間がかかる場合があります．
+msgs.reuslt.jobtitle.csv.upload = 登録結果：追加・更新:{0}件、エラー：{1}件
+jobtitle_update_requirements_as_required = 受講要件を必須にする
+jobtitle_update_requirements_as_optional = 受講要件を任意にする
+
+header_csv_order = 表示順
+
+all_affiliation = 全部局
+
+required = 必須
+not_required = 任意
+enrollment_status = 受講要件
+
+pattern_name0 = 職名
+pattern_name1 = 職名（小分類）
+pattern_name2 = 職名（中分類）
+pattern_name3 = 職名（大分類）
+pattern_default_id = 1
+
+all_sections = 全部局
